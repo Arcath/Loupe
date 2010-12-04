@@ -14,7 +14,7 @@ namespace :disk do
 				percent = line.scan(/^#{device} *#{blocks} *#{used} *#{avaliable} *(.*?) /).join
 				disk.mountpoint = line.scan(/#{device} *#{blocks} *#{used} *#{avaliable} *#{percent} *(.*?)$/).join
 				disk.used = used
-				disk.avaliable = avaliable
+				disk.avaliable = blocks
 				disk.save
 			end
 		end
