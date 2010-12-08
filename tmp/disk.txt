@@ -1,6 +1,6 @@
 Filesystem           1K-blocks      Used Available Use% Mounted on
-/dev/sda1            147549816  38823204 101231488  28% /
+/dev/sda1            147549816  40619816  99434876  30% /
 none                   1411144       216   1410928   1% /dev
-none                   1416736      1924   1414812   1% /dev/shm
+none                   1416736     11200   1405536   1% /dev/shm
 none                   1416736       244   1416492   1% /var/run
 none                   1416736         0   1416736   0% /var/lock

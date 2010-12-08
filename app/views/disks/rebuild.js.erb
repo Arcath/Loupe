@@ -1,0 +1,2 @@
+$('#disk_table').html("<%= escape_javascript(render 'disk_table') %>");
+var t=setTimeout("$.getScript('/disks/rebuild');",60000);

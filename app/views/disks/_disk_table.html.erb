@@ -1,0 +1,54 @@
+<table class="table">
+        <tr>             
+          <th class="first">Disk</th>
+          <th>Mount Point</th>
+          <th>Size<% totalsize = 0 %>
+          </th>
+                    <th>Used<% totalused = 0 %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @disks.each do |disk| -%>
+        <% barcolor = "#fdd" %>
+        <% barcolor = "#ffc" if disk.percent < 85 %>
+        <% barcolor = "#BBFFB6" if disk.percent < 45 %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= disk.name %>
+          </td>
+          <td><%= disk.mountpoint %></td>
+                    <td>
+            <%= disk.avaliable.to_cscale %><%= disk.avaliable.cscale_unit %><% totalsize += disk.avaliable %>
+          </td>
+                    <td>
+            <%= disk.used.to_cscale %><%= disk.used.cscale_unit %><% totalused += disk.used %>
+          </td>
+          <td class="last">
+          	<table style="width:400px; border:1px #000 solid;">
+          	<tr>
+			<td width="<%= disk.percent %>%" style="background-color:<%= barcolor %>; text-align:center;"><%= disk.percent %>%</td>
+			<td></td>
+		</tr>
+		</table>
+          </td>
+        </tr>          
+        <% end -%>
+        <tr>
+        <th class="first"></th>
+        <th>Totals</th>
+        <th><%= totalsize.to_cscale %><%= totalsize.cscale_unit %></th>
+        <th><%= totalused.to_cscale %><%= totalused.cscale_unit %></th>
+        <th class="last"><table style="width:400px; border:1px #000 solid;">
+          	<tr>
+          	<% barcolor = "#fdd" %>
+       		<% barcolor = "#ffc" if ((totalused/totalsize)*100) < 85 %>
+        	<% barcolor = "#BBFFB6" if ((totalused/totalsize)*100) < 45 %>
+			<td width="<%= ((totalused/totalsize)*100).round(2) %>%" style="background-color:<%= barcolor %>; text-align:center;"><%= ((totalused/totalsize)*100).round(2) %>%</td>
+			<td></td>
+		</tr>
+		</table></th>
+        </tr>
+      </table>
+            <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>      
+      </div>

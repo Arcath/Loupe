@@ -3,6 +3,7 @@ Loupe::Application.routes.draw do
 	resources :disks do
 		collection do
 			get :raw
+			get :rebuild
 		end
 	end
 	

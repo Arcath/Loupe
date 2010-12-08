@@ -7,7 +7,21 @@
   <div class="content">          
     <h2 class="title"><%= System.find_by_name("hostname").value %></h2>
     <div class="inner">
-      content
+      Hostname: <%= System.find_by_name("hostname").value %><br />
+      Uptime: <%= System.find_by_name("uptime").value %><br />
+      Memory:
+      <table width="100%" style="border:1px #000 solid;">
+      <tr>
+      	<td colspan="2" width="<%= ((ram_total/total_memory)*100).round %>%" style="background-color:#002134; color:#fff;">RAM <%= ram_total.to_cscale %><%= ram_total.cscale_unit %></td>
+      	<td colspan="2" style="background-color:#002134; color:#fff;" width="<%= ((swap_total/total_memory)*100).round %>%">SWAP <%= swap_total.to_cscale %><%= swap_total.cscale_unit %></td>
+      </tr>
+      <tr>
+      	<td width="<%= ((ram_used/total_memory)*100).round %>%" style="background-color:#002134; color:#fff;"><%= ram_used.to_cscale %><%= ram_used.cscale_unit %></td>
+      	<td></td>
+      	<td width="<%= ((swap_used/total_memory)*100).round %>%" style="background-color:#002134; color:#fff;"><%= swap_used.to_cscale %><%= swap_used.cscale_unit %></td>
+      	<td></td>
+      </tr>
+      </table>
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>      

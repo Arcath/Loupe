@@ -3,6 +3,11 @@ class DisksController < ApplicationController
 		@disks = Disk.all
 	end
 	
+	def rebuild
+		@disks = Disk.all
+		Stalker.enqueue("disk-build")
+	end
+	
 	def show
 		@disk = Disk.find_by_id(params[:id])
 	end

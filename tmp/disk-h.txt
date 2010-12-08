@@ -1,6 +1,6 @@
 Filesystem            Size  Used Avail Use% Mounted on
-/dev/sda1             141G   38G   97G  28% /
+/dev/sda1             141G   39G   95G  30% /
 none                  1.4G  216K  1.4G   1% /dev
-none                  1.4G  1.9M  1.4G   1% /dev/shm
+none                  1.4G   11M  1.4G   1% /dev/shm
 none                  1.4G  244K  1.4G   1% /var/run
 none                  1.4G     0  1.4G   0% /var/lock
